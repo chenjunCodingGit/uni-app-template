@@ -25,8 +25,8 @@ Vue.config.productionTip = false;
 import '@/plugins/wxJsSDK.js';
 // #endif
 //全局组件
-import MescrollBody from "@/components/mescroll-uni/mescroll-body.vue";
-Vue.component("mescroll-body", MescrollBody);
+// import MescrollBody from "@/components/mescroll-uni/mescroll-body.vue";
+// Vue.component("mescroll-body", MescrollBody);
 App.mpType = 'app'
 
 const app = new Vue({
