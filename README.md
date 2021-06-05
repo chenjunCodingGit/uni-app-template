@@ -8,6 +8,13 @@
 3. HBuilder X要安装scss/sass编译插件
 4. 运行项目
 
+### 启动模拟器adb
+```
+cd /Applications/NemuPlayer.app/Contents/MacOS
+./adb kill-server && ./adb server && ./adb shell
+port: 5555
+```
+
 ### `觉得不错，给个5星好评吧`
 
 | `QQ交流群(607391225)`         | `微信交流群（加我好友备注"进群"）`                  |

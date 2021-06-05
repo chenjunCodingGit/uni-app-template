@@ -1,7 +1,8 @@
 {
     "name" : "uniApp-案例",
-    "appid" : "__UNI__uniProject",
+    "appid" : "__UNI__B2C4039",
     "description" : "uniApp-案例",
+		"debug": true,
     "transformPx" : false,
     "icons" : [
         {
@@ -81,7 +82,9 @@
             },
             "splashscreen" : {
                 "iosStyle" : "storyboard",
-                "androidStyle" : "common"
+                "androidStyle" : "common",
+								"autoclose": true,
+								"delay": 0
             }
         },
         "compilerVersion" : 3,
