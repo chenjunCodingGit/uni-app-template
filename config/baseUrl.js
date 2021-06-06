@@ -1,5 +1,6 @@
 let baseUrl = "";
-let socketUrl = "";
+// let socketUrl = "ws://127.0.0.1:3000/";
+let socketUrl = "ws://192.168.1.7:3000/";
 if (process.env.NODE_ENV === 'development') {
 	// 开发环境
 	// baseUrl = "http://localhost:7001/";

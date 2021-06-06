@@ -20,23 +20,27 @@ export default {
 		if (store.state.userInfo.token) {
 			socket.init();
 		} else {
-			h5Login('force', () => {
+			console.log("ster: ",e);
 				socket.init();
-			});
+			// h5Login('force', () => {
+			// 	socket.init();
+			// });
 		}
 		// #endif
 		// #ifdef APP-PLUS
 		if (store.state.userInfo.token) {
 			socket.init();
 		}
-		// app更新，相关资源下载
+		// 点击进入app，检查更新，相关资源下载
 		APPUpdate();
 		// #endif
 	},
 	onShow: function(e) {
+		console.log("e: ",e);
 		// #ifdef MP-WEIXIN
 		//获取二维码携带的参数
 		let scene = decodeURIComponent(e.query.scene);
+		console.log("scene: ",scene);
 		scene = scene.split('&');
 		let data = {
 			//场景值
@@ -49,7 +53,7 @@ export default {
 			}
 		});
 		store.commit('setChatScenesInfo', Object.assign(e.query, data));
-		//小程序更新
+		//小程序检查更新
 		if (uni.getUpdateManager) {
 			const updateManager = uni.getUpdateManager();
 			updateManager.onCheckForUpdate(function(res) {

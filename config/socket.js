@@ -12,7 +12,7 @@ class socket {
 	}
 	init(callback) {
 		const _this = this;
-		
+		console.log("base.socketUrl: ",base.socketUrl);
 		if (base.socketUrl) {
 			if(this.socketStart){
 				console.log('webSocket已经启动了');
