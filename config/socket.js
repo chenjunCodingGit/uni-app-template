@@ -8,9 +8,11 @@ class socket {
 		this.monitorSocketError();
 		this.monitorSocketClose();
 		this.socketReceive();
+		this.socketMsgQueue = []; // 保存消息队列
 	}
 	init(callback) {
 		const _this = this;
+		
 		if (base.socketUrl) {
 			if(this.socketStart){
 				console.log('webSocket已经启动了');
@@ -21,6 +23,11 @@ class socket {
 				});
 				uni.onSocketOpen((res) => {
 					this.socketStart = true;
+					// 消息队列
+					// for (let i = 0; i < this.socketMsgQueue.length; i++) {
+					// 	this.sendSocketMessage(this.socketMsgQueue[i]);
+					// }
+					// this.socketMsgQueue = [];
 					callback && callback();
 					console.log('WebSocket连接已打开！');
 				});
@@ -38,7 +45,7 @@ class socket {
 		if (store.state.userInfo.uid) {
 			data.userUid = store.state.userInfo.uid;
 		}
-		console.log(data);
+		console.log('userUID', data);
 		uni.sendSocketMessage({
 			data: JSON.stringify(data),
 			success: () => {
@@ -82,7 +89,7 @@ class socket {
 			console.log('WebSocket连接打开失败，请检查！');
 		});
 	}
-	//心跳
+	//心跳 10s轮询
 	getHeartbeat() {
 		const _this = this;
 		this.send({
@@ -97,6 +104,19 @@ class socket {
 				}
 			}, 10000);
 		});
+	}
+	sendSocketMessage(msg) {
+		if (store.state.userInfo.uid) {
+			msg.userUid = store.state.userInfo.uid;
+		}
+	  if (this.socketStart) {
+	    uni.sendSocketMessage({
+	      // data: msg
+				data: JSON.stringify(msg)
+	    });
+	  } else {
+	    this.socketMsgQueue.push(msg);
+	  }
 	}
 };
 const mySocket = new socket();

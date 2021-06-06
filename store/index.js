@@ -9,6 +9,7 @@ let modules = {
 	actions: {}
 };
 
+// 将./modules下所有的export的state、mutations、actions放入let modules中
 files.keys().forEach((key) => {
   Object.assign(modules.state, files(key)["state"]);
   Object.assign(modules.mutations, files(key)["mutations"]);

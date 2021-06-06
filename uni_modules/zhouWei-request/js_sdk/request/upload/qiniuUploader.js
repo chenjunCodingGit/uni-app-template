@@ -1,6 +1,7 @@
 // created by gpake
 (function () {
-
+	
+	// 七牛云文件上传默认配置，可配置
   var config = {
     qiniuRegion: '',
     qiniuImageURLPrefix: '',

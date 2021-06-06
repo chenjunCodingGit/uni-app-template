@@ -8,6 +8,16 @@ const {
 import {
 	mergeConfig
 } from "./../core/utils.js";
+
+/*
+* 封装文件上传方法：qnImgUpload()    // 七牛云上传图片
+*                qnVideoUpload()  // 七牛云上传视频
+*                qnFileUpload()   // 七牛云文件上传（支持多张上传）
+*                urlImgUpload()   // 本地服务器图片上传
+*                urlVideoUpload() // 本地服务器上传视频
+*                urlFileUpload()  // 本地服务器文件上传方法
+*/
+
 export default class fileUpload extends request {
 	constructor(props) {
 		// 调用实现父类的构造函数

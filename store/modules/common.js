@@ -16,7 +16,7 @@ export const state = {
 const cacheNameList = ["userInfo", "webViewUrl"];
 let clearTime;
 export const mutations = {
-  //取出缓存数据（打开APP就取出）
+  //取出Storage缓存数据,并放入store中（打开APP就取出）
   setCacheData(state) {
   	for (let name of cacheNameList) {
 		let data;

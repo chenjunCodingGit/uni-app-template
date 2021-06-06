@@ -29,6 +29,7 @@ export default {
 		if (store.state.userInfo.token) {
 			socket.init();
 		}
+		// app更新，相关资源下载
 		APPUpdate();
 		// #endif
 	},
